@@ -1,0 +1,23 @@
+h1
+  | New Data тут мы вводим почту и телефон, которые будут изменены, чтобы проверить работу методов
+
+= form_with model: @change, local: true do |form|
+  
+  p
+    = form.label :aviacompany_id
+    = form.collection_select :aviacompany_id, Aviacompany.all, :id, :title, prompt: true
+
+  p
+    = form.label :email
+    = form.text_field :email, id: :change_email  
+
+  p
+    = form.label :phone
+    = form.text_field :phone, id: :change_phone 
+
+  p
+    = form.label :pasport
+    = form.text_field :pasport, id: :change_pasport    
+  
+  p
+    = form.submit 

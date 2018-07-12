@@ -1,0 +1,25 @@
+h1
+  | New Parameter Тут выбираем авиакомпанию и задаем параментры замены
+
+= form_with model: @replacement_parameter, local: true do |form|
+  
+  p
+    = form.label :aviacompany_id
+    = form.collection_select :aviacompany_id, Aviacompany.all, :id, :title, prompt: true
+
+  p
+    = form.label :email
+    = form.collection_select :email, Email.all, :mail, :mail, prompt: true  
+
+  p
+    = form.label :phone
+    = form.collection_select :phone, Phone.all, :phone, :phone, prompt: true 
+
+  p
+    = form.label :pasport
+    = form.collection_select :pasport, Pasport.all, :pasport, :pasport, prompt: true    
+  
+  p
+    = form.submit 
+
+= link_to 'Change user data', new_change_path
